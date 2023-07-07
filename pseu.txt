@@ -1,0 +1,30 @@
+function Dijkstra(graph, start, end):
+    create an empty priority queue Q
+    create a dictionary dist with default value infinity
+    create a dictionary prev
+    set dist[start] = 0
+    enqueue (start, 0) into Q
+
+    while Q is not empty:
+        current, current_dist = dequeue the vertex with the minimum distance from Q
+        if current == end:
+            return constructPath(prev, start, end)
+        
+        for neighbor in graph[current]:
+            new_dist = current_dist + 1  # Assuming each hyperlink has a weight of 1
+            if new_dist < dist[neighbor]:
+                dist[neighbor] = new_dist
+                prev[neighbor] = current
+                enqueue (neighbor, new_dist) into Q
+    
+    return null  # No path found
+
+function constructPath(prev, start, end):
+    create an empty list path
+    current = end
+    while current != start:
+        path.append(current)
+        current = prev[current]
+    path.append(start)
+    path.reverse()
+    return path
