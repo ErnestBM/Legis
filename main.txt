@@ -1,0 +1,33 @@
+function main(P: WikiArt, Q: WikiArt):
+  wikiSurfer(P, Q)
+
+class WikiArt:
+  website: Website
+  hyperlinks: Array[Hyperlink]
+
+class Hyperlink:
+  pointer: URL
+  relationship_with_destination_article: float # from 0 to 1
+
+  function open(self) -> WikiArt:
+    return &URL
+
+  function assign_relationship(self):
+    if URL points to destination_article:
+      self.relationship_with_destination_article = 1
+    else:
+      self.relationship_with_destination_article =
+      # TODO
+      # https://wikipedia.org/Aphthous_stomatitis # 0 >= n >= 1
+      # https://wikipedia.org/Jericho
+      # Maybe use an AI?
+
+function wikiSurfer(origin_article: WikiArt, destination_article: WikiArt):
+  # We want to get from P to Q using only hyperlinks contained within P, in as
+  # few "attempts" as possible, procedurally.
+
+  hyperlinks = origin_article.hyperlinks
+  sort hyperlinks in descending order based on relationship_with_destination_article
+  new_article = hyperlinks[0].open()
+
+  wikiSurfer(new_article, destination_article)
