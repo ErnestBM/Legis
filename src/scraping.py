@@ -8,7 +8,7 @@ def simple_scrape(url):
     hyp = [link.get("href") for link in tag_a]
 
     for link in hyp:
-        print("https://id.wikipedia.org/" + str(link))
+        print("https://id.wikipedia.org" + str(link))
 
 q = input("Your Wikipedia page: ")
 simple_scrape(q)
